@@ -191,34 +191,6 @@ set(FRAMEWORK_HEADERS
 	xercesc/framework/MemBufFormatTarget.hpp
 	xercesc/framework/MemBufInputSource.hpp
 	xercesc/framework/MemoryManager.hpp
-	xercesc/framework/psvi/PSVIAttribute.hpp
-	xercesc/framework/psvi/PSVIAttributeList.hpp
-	xercesc/framework/psvi/PSVIElement.hpp
-	xercesc/framework/psvi/PSVIHandler.hpp
-	xercesc/framework/psvi/PSVIItem.hpp
-	xercesc/framework/psvi/XSAnnotation.hpp
-	xercesc/framework/psvi/XSAttributeDeclaration.hpp
-	xercesc/framework/psvi/XSAttributeGroupDefinition.hpp
-	xercesc/framework/psvi/XSAttributeUse.hpp
-	xercesc/framework/psvi/XSComplexTypeDefinition.hpp
-	xercesc/framework/psvi/XSConstants.hpp
-	xercesc/framework/psvi/XSElementDeclaration.hpp
-	xercesc/framework/psvi/XSFacet.hpp
-	xercesc/framework/psvi/XSIDCDefinition.hpp
-	xercesc/framework/psvi/XSModel.hpp
-	xercesc/framework/psvi/XSModelGroup.hpp
-	xercesc/framework/psvi/XSModelGroupDefinition.hpp
-	xercesc/framework/psvi/XSMultiValueFacet.hpp
-	xercesc/framework/psvi/XSNamedMap.hpp
-	xercesc/framework/psvi/XSNamedMap.c
-	xercesc/framework/psvi/XSNamespaceItem.hpp
-	xercesc/framework/psvi/XSNotationDeclaration.hpp
-	xercesc/framework/psvi/XSObject.hpp
-	xercesc/framework/psvi/XSParticle.hpp
-	xercesc/framework/psvi/XSSimpleTypeDefinition.hpp
-	xercesc/framework/psvi/XSTypeDefinition.hpp
-	xercesc/framework/psvi/XSValue.hpp
-	xercesc/framework/psvi/XSWildcard.hpp
 	xercesc/framework/StdInInputSource.hpp
 	xercesc/framework/StdOutFormatTarget.hpp
 	xercesc/framework/URLInputSource.hpp
@@ -249,6 +221,37 @@ set(FRAMEWORK_HEADERS
 	xercesc/framework/XMLSchemaDescription.hpp
 	xercesc/framework/XMLValidator.hpp
 	xercesc/framework/XMLValidityCodes.hpp
+)
+
+set(FRAMEWORK_PSVI_HEADERS
+	xercesc/framework/psvi/PSVIAttribute.hpp
+	xercesc/framework/psvi/PSVIAttributeList.hpp
+	xercesc/framework/psvi/PSVIElement.hpp
+	xercesc/framework/psvi/PSVIHandler.hpp
+	xercesc/framework/psvi/PSVIItem.hpp
+	xercesc/framework/psvi/XSAnnotation.hpp
+	xercesc/framework/psvi/XSAttributeDeclaration.hpp
+	xercesc/framework/psvi/XSAttributeGroupDefinition.hpp
+	xercesc/framework/psvi/XSAttributeUse.hpp
+	xercesc/framework/psvi/XSComplexTypeDefinition.hpp
+	xercesc/framework/psvi/XSConstants.hpp
+	xercesc/framework/psvi/XSElementDeclaration.hpp
+	xercesc/framework/psvi/XSFacet.hpp
+	xercesc/framework/psvi/XSIDCDefinition.hpp
+	xercesc/framework/psvi/XSModel.hpp
+	xercesc/framework/psvi/XSModelGroup.hpp
+	xercesc/framework/psvi/XSModelGroupDefinition.hpp
+	xercesc/framework/psvi/XSMultiValueFacet.hpp
+	xercesc/framework/psvi/XSNamedMap.hpp
+	xercesc/framework/psvi/XSNamedMap.c
+	xercesc/framework/psvi/XSNamespaceItem.hpp
+	xercesc/framework/psvi/XSNotationDeclaration.hpp
+	xercesc/framework/psvi/XSObject.hpp
+	xercesc/framework/psvi/XSParticle.hpp
+	xercesc/framework/psvi/XSSimpleTypeDefinition.hpp
+	xercesc/framework/psvi/XSTypeDefinition.hpp
+	xercesc/framework/psvi/XSValue.hpp
+	xercesc/framework/psvi/XSWildcard.hpp
 )
 
 set(FRAMEWORK_SOURCES
@@ -470,33 +473,6 @@ set(UTIL_HEADERS
 	xercesc/util/RefStackOf.c
 	xercesc/util/RefVectorOf.hpp
 	xercesc/util/RefVectorOf.c
-	xercesc/util/regx/ASCIIRangeFactory.hpp
-	xercesc/util/regx/BlockRangeFactory.hpp
-	xercesc/util/regx/BMPattern.hpp
-	xercesc/util/regx/CharToken.hpp
-	xercesc/util/regx/ClosureToken.hpp
-	xercesc/util/regx/ConcatToken.hpp
-	xercesc/util/regx/Match.hpp
-	xercesc/util/regx/Op.hpp
-	xercesc/util/regx/OpFactory.hpp
-	xercesc/util/regx/ParenToken.hpp
-	xercesc/util/regx/ParserForXMLSchema.hpp
-	xercesc/util/regx/RangeFactory.hpp
-	xercesc/util/regx/RangeToken.hpp
-	xercesc/util/regx/RangeTokenMap.hpp
-	xercesc/util/regx/RegularExpression.hpp
-	xercesc/util/regx/RegxDefs.hpp
-	xercesc/util/regx/RegxParser.hpp
-	xercesc/util/regx/RegxUtil.hpp
-	xercesc/util/regx/StringToken.hpp
-	xercesc/util/regx/Token.hpp
-	xercesc/util/regx/TokenFactory.hpp
-	xercesc/util/regx/TokenInc.hpp
-	xercesc/util/regx/UniCharTable.hpp
-	xercesc/util/regx/UnicodeRangeFactory.hpp
-	xercesc/util/regx/UnionToken.hpp
-	xercesc/util/regx/XMLRangeFactory.hpp
-	xercesc/util/regx/XMLUniCharacter.hpp
 	xercesc/util/RuntimeException.hpp
 	xercesc/util/SchemaDateTimeException.hpp
 	xercesc/util/SecurityManager.hpp
@@ -557,6 +533,36 @@ set(UTIL_HEADERS
 	xercesc/util/XMLUTF16Transcoder.hpp
 	xercesc/util/XMLUTF8Transcoder.hpp
 	xercesc/util/XMLWin1252Transcoder.hpp
+)
+
+set(UTIL_REGX_HEADERS
+	xercesc/util/regx/ASCIIRangeFactory.hpp
+	xercesc/util/regx/BlockRangeFactory.hpp
+	xercesc/util/regx/BMPattern.hpp
+	xercesc/util/regx/CharToken.hpp
+	xercesc/util/regx/ClosureToken.hpp
+	xercesc/util/regx/ConcatToken.hpp
+	xercesc/util/regx/Match.hpp
+	xercesc/util/regx/Op.hpp
+	xercesc/util/regx/OpFactory.hpp
+	xercesc/util/regx/ParenToken.hpp
+	xercesc/util/regx/ParserForXMLSchema.hpp
+	xercesc/util/regx/RangeFactory.hpp
+	xercesc/util/regx/RangeToken.hpp
+	xercesc/util/regx/RangeTokenMap.hpp
+	xercesc/util/regx/RegularExpression.hpp
+	xercesc/util/regx/RegxDefs.hpp
+	xercesc/util/regx/RegxParser.hpp
+	xercesc/util/regx/RegxUtil.hpp
+	xercesc/util/regx/StringToken.hpp
+	xercesc/util/regx/Token.hpp
+	xercesc/util/regx/TokenFactory.hpp
+	xercesc/util/regx/TokenInc.hpp
+	xercesc/util/regx/UniCharTable.hpp
+	xercesc/util/regx/UnicodeRangeFactory.hpp
+	xercesc/util/regx/UnionToken.hpp
+	xercesc/util/regx/XMLRangeFactory.hpp
+	xercesc/util/regx/XMLUniCharacter.hpp
 )
 
 set(UTIL_SOURCES
@@ -632,7 +638,7 @@ set(UTIL_SOURCES
 	xercesc/util/XMLWin1252Transcoder.cpp
 )
 
-set(VALIDATORS_HEADERS
+set(VALIDATORS_COMMON_HEADERS
 	xercesc/validators/common/AllContentModel.hpp
 	xercesc/validators/common/CMAny.hpp
 	xercesc/validators/common/CMBinaryOp.hpp
@@ -648,6 +654,9 @@ set(VALIDATORS_HEADERS
 	xercesc/validators/common/GrammarResolver.hpp
 	xercesc/validators/common/MixedContentModel.hpp
 	xercesc/validators/common/SimpleContentModel.hpp
+)
+
+set(VALIDATORS_DATATYPE_HEADERS
 	xercesc/validators/datatype/AbstractNumericFacetValidator.hpp
 	xercesc/validators/datatype/AbstractNumericValidator.hpp
 	xercesc/validators/datatype/AbstractStringValidator.hpp
@@ -684,6 +693,9 @@ set(VALIDATORS_HEADERS
 	xercesc/validators/datatype/XMLCanRepGroup.hpp
 	xercesc/validators/datatype/YearDatatypeValidator.hpp
 	xercesc/validators/datatype/YearMonthDatatypeValidator.hpp
+)
+
+set(VALIDATORS_DTD_HEADERS
 	xercesc/validators/DTD/DocTypeHandler.hpp
 	xercesc/validators/DTD/DTDAttDef.hpp
 	xercesc/validators/DTD/DTDAttDefList.hpp
@@ -693,6 +705,9 @@ set(VALIDATORS_HEADERS
 	xercesc/validators/DTD/DTDScanner.hpp
 	xercesc/validators/DTD/DTDValidator.hpp
 	xercesc/validators/DTD/XMLDTDDescriptionImpl.hpp
+)
+
+set(VALIDATORS_SCHEMA_HEADERS
 	xercesc/validators/schema/ComplexTypeInfo.hpp
 	xercesc/validators/schema/GeneralAttributeCheck.hpp
 	xercesc/validators/schema/identity/FieldActivator.hpp
@@ -1006,14 +1021,19 @@ set(LIBXERCES_SOURCES
 
 set(LIBXERCES_HEADERS
 	${UTIL_HEADERS}
+	${UTIL_REGX_HEADERS}
 	${DOM_HEADERS}
 	${DOMIMPL_HEADERS}
 	${FRAMEWORK_HEADERS}
+	${FRAMEWORK_PSVI_HEADERS}
 	${INTERNAL_HEADERS}
 	${PARSERS_HEADERS}
 	${SAX_HEADERS}
 	${SAX2_HEADERS}
-	${VALIDATORS_HEADERS}
+	${VALIDATORS_COMMON_HEADERS}
+	${VALIDATORS_DATATYPE_HEADERS}
+	${VALIDATORS_DTD_HEADERS}
+	${VALIDATORS_SCHEMA_HEADERS}
 	${XINCLUDE_HEADERS}
 )
 
@@ -1102,13 +1122,34 @@ if(XERCES_USE_FILEMGR_WINDOWS)
 	list(APPEND LIBXERCES_HEADERS ${WINFMGR_HEADERS})
 endif()
 
+if(NOT HAVE_STRICMP)
+	list(APPEND LIBXERCES_SOURCES "stricmp.c")
+	list(APPEND LIBXERCES_HEADERS "stricmp.h")
+endif()
+if(NOT HAVE_STRNICMP)
+	list(APPEND LIBXERCES_SOURCES "strnicmp.c")
+	list(APPEND LIBXERCES_HEADERS "strnicmp.h")
+endif()
+
+
+set(LINK_FLAGS)
+if(APPLE)
+	list(APPEND LINK_FLAGS "-framework CoreFoundation" "-framework CoreServices")
+endif()
+string(REPLACE ";" " " LINK_FLAGS_STR "${LINK_FLAGS}")
 
 if(ENABLE_STATIC)
 	add_library(xerces_c-static STATIC ${LIBXERCES_SOURCES})
 	set_target_properties(xerces_c-static PROPERTIES OUTPUT_NAME xerces_c)
+	if(LINK_FLAGS_STR)
+		set_target_properties(xerces_c-static PROPERTIES LINK_FLAGS "${LINK_FLAGS_STR}")
+	endif()
 endif()
 if(ENABLE_SHARED)
 	add_library(xerces_c SHARED ${LIBXERCES_SOURCES})
+	if(LINK_FLAGS_STR)
+		set_target_properties(xerces_c PROPERTIES LINK_FLAGS "${LINK_FLAGS_STR}")
+	endif()
 	if(MSVC)
 		if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
 			install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_BUILD_TYPE}/xerces_c.pdb
@@ -1142,6 +1183,10 @@ install(FILES ${FRAMEWORK_HEADERS}
 	DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/xercesc/framework
 	PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
 )
+install(FILES ${FRAMEWORK_PSVI_HEADERS}
+	DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/xercesc/framework/psvi
+	PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
+)
 install(FILES ${INTERNAL_HEADERS}
 	DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/xercesc/internal
 	PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
@@ -1162,11 +1207,32 @@ install(FILES ${UTIL_HEADERS}
 	DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/xercesc/util
 	PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
 )
-install(FILES ${VALIDATORS_HEADERS}
-	DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/xercesc/validators
+install(FILES ${UTIL_REGX_HEADERS}
+	DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/xercesc/util/regx
+	PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
+)
+install(FILES ${VALIDATORS_COMMON_HEADERS}
+	DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/xercesc/validators/common
+	PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
+)
+install(FILES ${VALIDATORS_DATATYPE_HEADERS}
+	DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/xercesc/validators/datatype
+	PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
+)
+install(FILES ${VALIDATORS_DTD_HEADERS}
+	DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/xercesc/validators/DTD
+	PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
+)
+install(FILES ${VALIDATORS_SCHEMA_HEADERS}
+	DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/xercesc/validators/schema
 	PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
 )
 install(FILES ${XINCLUDE_HEADERS}
 	DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/xercesc/xinclude
 	PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
 )
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/../xercesc/util/Xerces_autoconf_config.hpp"
+	DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/xercesc/util
+	PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
+)
+

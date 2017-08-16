@@ -411,31 +411,31 @@
 #cmakedefine XERCES_PLATFORM_IMPORT
 
 /* An appropriate signed 16 bit integer type */
-#cmakedefine XERCES_S16BIT_INT
+#cmakedefine XERCES_S16BIT_INT @XERCES_S16BIT_INT@
 
 /* An appropriate signed 32 bit integer type */
-#cmakedefine XERCES_S32BIT_INT
+#cmakedefine XERCES_S32BIT_INT @XERCES_S32BIT_INT@
 
 /* An appropriate signed 64 bit integer type */
-#cmakedefine XERCES_S64BIT_INT
+#cmakedefine XERCES_S64BIT_INT @XERCES_S64BIT_INT@
 
 /* Define as the appropriate size_t type */
-#cmakedefine XERCES_SIZE_T
+#cmakedefine XERCES_SIZE_T @XERCES_SIZE_T@
 
 /* Define as the appropriate ssize_t type */
-#cmakedefine XERCES_SSIZE_T
+#cmakedefine XERCES_SSIZE_T @XERCES_SSIZE_T@
 
 /* Define if the std namespace is supported */
 #cmakedefine XERCES_STD_NAMESPACE
 
 /* An appropriate unsigned 16 bit integer type */
-#cmakedefine XERCES_U16BIT_INT
+#cmakedefine XERCES_U16BIT_INT @XERCES_U16BIT_INT@
 
 /* An appropriate unsigned 32 bit integer type */
-#cmakedefine XERCES_U32BIT_INT
+#cmakedefine XERCES_U32BIT_INT @XERCES_U32BIT_INT@
 
 /* An appropriate unsigned 64 bit integer type */
-#cmakedefine XERCES_U64BIT_INT
+#cmakedefine XERCES_U64BIT_INT @XERCES_U64BIT_INT@
 
 /* Define to use the POSIX file mgr */
 #cmakedefine XERCES_USE_FILEMGR_POSIX 1
@@ -489,7 +489,7 @@
 #cmakedefine XERCES_USE_TRANSCODER_WINDOWS 1
 
 /* Define to the 16 bit type used to represent Xerces UTF-16 characters */
-#cmakedefine XERCES_XMLCH_T
+#cmakedefine XERCES_XMLCH_T @XERCES_XMLCH_T@
 
 /* Define to empty if `const' does not conform to ANSI C. */
 #cmakedefine const
