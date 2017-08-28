@@ -1139,20 +1139,20 @@ endif()
 string(REPLACE ";" " " LINK_FLAGS_STR "${LINK_FLAGS}")
 
 if(ENABLE_STATIC)
-	add_library(xerces_c-static STATIC ${LIBXERCES_SOURCES})
-	set_target_properties(xerces_c-static PROPERTIES OUTPUT_NAME xerces_c)
+	add_library(xerces-c-static STATIC ${LIBXERCES_SOURCES})
+	set_target_properties(xerces-c-static PROPERTIES OUTPUT_NAME xerces-c)
 	if(LINK_FLAGS_STR)
-		set_target_properties(xerces_c-static PROPERTIES LINK_FLAGS "${LINK_FLAGS_STR}")
+		set_target_properties(xerces-c-static PROPERTIES LINK_FLAGS "${LINK_FLAGS_STR}")
 	endif()
 endif()
 if(ENABLE_SHARED)
-	add_library(xerces_c SHARED ${LIBXERCES_SOURCES})
+	add_library(xerces-c SHARED ${LIBXERCES_SOURCES})
 	if(LINK_FLAGS_STR)
-		set_target_properties(xerces_c PROPERTIES LINK_FLAGS "${LINK_FLAGS_STR}")
+		set_target_properties(xerces-c PROPERTIES LINK_FLAGS "${LINK_FLAGS_STR}")
 	endif()
 	if(MSVC)
 		if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
-			install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_BUILD_TYPE}/xerces_c.pdb
+			install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_BUILD_TYPE}/xerces-c.pdb
 				DESTINATION ${CMAKE_INSTALL_BINDIR}
 				PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
 			)
@@ -1161,13 +1161,13 @@ if(ENABLE_SHARED)
 endif()
 
 if(ENABLE_STATIC)
-	install(TARGETS xerces_c-static
+	install(TARGETS xerces-c-static
 		ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
 		PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
 	)
 endif()
 if(ENABLE_SHARED)
-	install(TARGETS xerces_c
+	install(TARGETS xerces-c
 		RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 		LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 		ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
