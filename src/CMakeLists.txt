@@ -1135,10 +1135,12 @@ endif()
 set(LINK_FLAGS)
 if(APPLE)
 	list(APPEND LINK_FLAGS "-framework CoreFoundation" "-framework CoreServices")
+else()
+	set_source_files_properties(${LIBXERCES_SOURCES} PROPERTIES COMPILE_FLAGS "-std=c++11")
 endif()
 string(REPLACE ";" " " LINK_FLAGS_STR "${LINK_FLAGS}")
 
-set_source_files_properties(${LIBXERCES_SOURCES} PROPERTIES COMPILE_FLAGS "-std=c++11")
+
 
 if(ENABLE_STATIC)
 	add_library(xerces-c-static STATIC ${LIBXERCES_SOURCES})
