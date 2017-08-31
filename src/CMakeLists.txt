@@ -1122,15 +1122,6 @@ if(XERCES_USE_FILEMGR_WINDOWS)
 	list(APPEND LIBXERCES_HEADERS ${WINFMGR_HEADERS})
 endif()
 
-if(NOT HAVE_STRICMP)
-	list(APPEND LIBXERCES_SOURCES "stricmp.c")
-	list(APPEND LIBXERCES_HEADERS "stricmp.h")
-endif()
-if(NOT HAVE_STRNICMP)
-	list(APPEND LIBXERCES_SOURCES "strnicmp.c")
-	list(APPEND LIBXERCES_HEADERS "strnicmp.h")
-endif()
-
 
 set(LINK_FLAGS)
 if(APPLE)
@@ -1140,6 +1131,15 @@ else()
 endif()
 string(REPLACE ";" " " LINK_FLAGS_STR "${LINK_FLAGS}")
 
+
+if(NOT HAVE_STRICMP)
+	list(APPEND LIBXERCES_SOURCES "stricmp.c")
+	list(APPEND LIBXERCES_HEADERS "stricmp.h")
+endif()
+if(NOT HAVE_STRNICMP)
+	list(APPEND LIBXERCES_SOURCES "strnicmp.c")
+	list(APPEND LIBXERCES_HEADERS "strnicmp.h")
+endif()
 
 
 if(ENABLE_STATIC)
