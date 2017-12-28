@@ -464,7 +464,11 @@ char* IconvLCPTranscoder::transcode(const XMLCh* const toTranscode,
     while (toTranscode[srcCursor])
     {
         char mbBuf[16]; // MB_CUR_MAX is not defined as a constant on some platforms
+#ifdef __ANDROID__
+        int len = wcrtomb(mbBuf, toTranscode[srcCursor++], nullptr);
+#else
         int len = wctomb(mbBuf, toTranscode[srcCursor++]);
+#endif
         if (len < 0)
         {
             dstCursor = 0;
