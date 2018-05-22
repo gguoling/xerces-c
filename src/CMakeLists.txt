@@ -22,8 +22,6 @@
 
 include(GNUInstallDirs)
 
-add_definitions("-DXERCES_BUILDING_LIBRARY")
-
 set(DOM_HEADERS
 	xercesc/dom/DOM.hpp
 	xercesc/dom/DOMAttr.hpp
@@ -1126,7 +1124,7 @@ endif()
 set(LINK_FLAGS)
 if(APPLE)
 	list(APPEND LINK_FLAGS "-framework CoreFoundation")
-	if(NOT IOS) 
+	if(NOT IOS)
 		list(APPEND LINK_FLAGS "-framework CoreServices")
 	endif()
 else()
@@ -1158,7 +1156,7 @@ if(ENABLE_SHARED)
 		set_target_properties(xerces-c PROPERTIES LINK_FLAGS "${LINK_FLAGS_STR}")
 	endif()
 	if(MSVC)
-		set_target_properties(xerces-c PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
+		target_compile_definitions(xerces-c PRIVATE "-DDLL_EXPORT" "-DXERCES_BUILDING_LIBRARY")
 		if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
 			install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_BUILD_TYPE}/xerces-c.pdb
 				DESTINATION ${CMAKE_INSTALL_BINDIR}
@@ -1243,4 +1241,3 @@ install(FILES "${CMAKE_CURRENT_BINARY_DIR}/../xercesc/util/Xerces_autoconf_confi
 	DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/xercesc/util
 	PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
 )
-
