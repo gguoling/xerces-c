@@ -3,19 +3,20 @@
 %define _prefix    @CMAKE_INSTALL_PREFIX@
 %define pkg_prefix @BC_PACKAGE_NAME_PREFIX@
 
-Summary:	Xerces-C++ validating XML parser
-Name:		xerces-c
-Version:	3.1.4
-Release:	1
-URL:		http://xerces.apache.org/xerces-c/
-Source0:	%{name}-%{version}.tar.gz
-License:        Apache
-Group:		Libraries
-BuildRoot:	%{_tmppath}/%{name}-root
-Prefix:		/usr
-%{!?_without_curl:BuildRequires: curl-devel}
-%{?_with_icu:BuildRequires: libicu-devel}
+%define build_number 1
 
+
+Name:           @CPACK_PACKAGE_NAME@
+Version:        @PROJECT_VERSION@
+Release:        %{build_number}%{?dist}
+Summary:        Xerces-C++ validating XML parser
+
+
+Group:          Libraries
+License:        Apache
+URL:            http://xerces.apache.org/xerces-c/
+Source0:        %{name}-%{version}.tar.gz
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Xerces-C++ is a validating XML parser written in a portable subset of C++.
@@ -28,12 +29,14 @@ code, samples and API documentation are provided with the parser. For
 portability, care has been taken to make minimal use of templates, no RTTI,
 and minimal use of #ifdefs.
 
-%package devel
-Requires:	%{name} = %{version}
-Group:		Development/Libraries
-Summary:	Header files for Xerces-C++ validating XML parser
 
-%description devel
+%package        devel
+Summary:        Header files for Xerces-C++ validating XML parser
+Group:          Development/Libraries
+
+Requires:       %{name} = %{version}
+
+%description    devel
 Header files you can use to develop XML applications with Xerces-C++.
 
 Xerces-C++ is a validating XML parser written in a portable subset of C++.
@@ -41,37 +44,45 @@ Xerces-C++ makes it easy to give your application the ability to read and
 write XML data. A shared library is provided for parsing, generating,
 manipulating, and validating XML documents.
 
+
+%if 0%{?rhel} && 0%{?rhel} <= 7
+%global cmake_name cmake3
+%define ctest_name ctest3
+%else
+%global cmake_name cmake
+%define ctest_name ctest
+%endif
+
+# This is for debian builds where debug_package has to be manually specified, whereas in centos it does not
+%define custom_debug_package %{!?_enable_debug_packages:%debug_package}%{?_enable_debug_package:%{nil}}
+%custom_debug_package
+
 %prep
-%setup -q
+%setup -n %{name}-%{version}
 
 %build
-%configure %{!?_without_curl:--enable-netaccessor-curl} %{?_with_icu:--enable-transcoder-icu --enable-msgloader-icu} %{?xerces_options}
-%{__make}
+%{expand:%%%cmake_name} . -DCMAKE_BUILD_TYPE=@CMAKE_BUILD_TYPE@ -DCMAKE_INSTALL_LIBDIR:PATH=%{_libdir} -DCMAKE_PREFIX_PATH:PATH=%{_prefix}
+make %{?_smp_mflags}
 
 %install
-[ "$RPM_BUILD_ROOT" != "/" ] && %{__rm} -rf $RPM_BUILD_ROOT
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+make install DESTDIR=%{buildroot}
 
 %clean
-[ "$RPM_BUILD_ROOT" != "/" ] && %{__rm} -rf $RPM_BUILD_ROOT
+rm -rf $RPM_BUILD_ROOT
 
-%ifnos solaris2.8 solaris2.9 solaris2.10
 %post -p /sbin/ldconfig
-%endif
 
-%ifnos solaris2.8 solaris2.9 solaris2.10
 %postun -p /sbin/ldconfig
-%endif
+
 
 %files
-%defattr(755,root,root)
+%defattr(-,root,root,-)
 %{_bindir}/*
 %{_libdir}/lib%{name}-*.so
 %exclude %{_libdir}/lib%{name}.la
 
-
 %files devel
-%defattr(-,root,root)
+%defattr(-,root,root,-)
 %{_includedir}/xercesc
 %{_libdir}/lib%{name}.so
 %{_libdir}/lib%{name}.a

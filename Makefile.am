@@ -1,7 +1,6 @@
 SUBDIRS = src tests samples
 
 EXTRA_DIST = version.incl \
-             xerces-c.spec \
              xerces-c.pc.in \
              CREDITS \
              INSTALL \
